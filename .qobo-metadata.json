@@ -1,0 +1,501 @@
+{
+  "databaseSchema": {
+    "tables": {
+      "categories": {
+        "fields": {
+          "id": {
+            "type": "UUID",
+            "primaryKey": true,
+            "autoGenerate": true
+          },
+          "name": {
+            "type": "VARCHAR(255)",
+            "required": true
+          },
+          "slug": {
+            "type": "VARCHAR(255)",
+            "unique": true,
+            "required": true
+          },
+          "description": {
+            "type": "TEXT"
+          },
+          "image_url": {
+            "type": "VARCHAR(500)"
+          },
+          "display_order": {
+            "type": "INTEGER",
+            "default": 0
+          },
+          "created_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        },
+        "indexes": [
+          "slug",
+          "display_order"
+        ]
+      },
+      "products": {
+        "fields": {
+          "id": {
+            "type": "UUID",
+            "primaryKey": true,
+            "autoGenerate": true
+          },
+          "name": {
+            "type": "VARCHAR(255)",
+            "required": true
+          },
+          "slug": {
+            "type": "VARCHAR(255)",
+            "unique": true,
+            "required": true
+          },
+          "description": {
+            "type": "TEXT",
+            "required": true
+          },
+          "category_id": {
+            "type": "UUID",
+            "foreignKey": "categories.id",
+            "required": true
+          },
+          "price": {
+            "type": "DECIMAL(10,2)",
+            "required": true
+          },
+          "image_url": {
+            "type": "VARCHAR(500)",
+            "required": true
+          },
+          "ply_type": {
+            "type": "VARCHAR(50)"
+          },
+          "dimensions": {
+            "type": "VARCHAR(100)"
+          },
+          "weight_capacity": {
+            "type": "VARCHAR(100)"
+          },
+          "material": {
+            "type": "VARCHAR(255)"
+          },
+          "customizable": {
+            "type": "BOOLEAN",
+            "default": true
+          },
+          "applications": {
+            "type": "TEXT"
+          },
+          "stock_quantity": {
+            "type": "INTEGER",
+            "default": 1000
+          },
+          "featured": {
+            "type": "BOOLEAN",
+            "default": false
+          },
+          "created_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          },
+          "updated_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        },
+        "indexes": [
+          "category_id",
+          "slug",
+          "featured",
+          "created_at"
+        ]
+      },
+      "hero_sections": {
+        "fields": {
+          "id": {
+            "type": "UUID",
+            "primaryKey": true,
+            "autoGenerate": true
+          },
+          "title": {
+            "type": "VARCHAR(255)",
+            "required": true
+          },
+          "subtitle": {
+            "type": "TEXT"
+          },
+          "description": {
+            "type": "TEXT"
+          },
+          "cta_text": {
+            "type": "VARCHAR(100)"
+          },
+          "cta_link": {
+            "type": "VARCHAR(255)"
+          },
+          "background_image_url": {
+            "type": "VARCHAR(500)"
+          },
+          "display_order": {
+            "type": "INTEGER",
+            "default": 1
+          },
+          "published": {
+            "type": "BOOLEAN",
+            "default": true
+          },
+          "created_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        },
+        "indexes": [
+          "display_order",
+          "published"
+        ]
+      },
+      "features": {
+        "fields": {
+          "id": {
+            "type": "UUID",
+            "primaryKey": true,
+            "autoGenerate": true
+          },
+          "title": {
+            "type": "VARCHAR(255)",
+            "required": true
+          },
+          "description": {
+            "type": "TEXT",
+            "required": true
+          },
+          "icon": {
+            "type": "VARCHAR(50)"
+          },
+          "display_order": {
+            "type": "INTEGER",
+            "default": 0
+          },
+          "published": {
+            "type": "BOOLEAN",
+            "default": true
+          },
+          "created_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        },
+        "indexes": [
+          "display_order",
+          "published"
+        ]
+      },
+      "testimonials": {
+        "fields": {
+          "id": {
+            "type": "UUID",
+            "primaryKey": true,
+            "autoGenerate": true
+          },
+          "name": {
+            "type": "VARCHAR(255)",
+            "required": true
+          },
+          "role": {
+            "type": "VARCHAR(255)"
+          },
+          "company": {
+            "type": "VARCHAR(255)"
+          },
+          "text": {
+            "type": "TEXT",
+            "required": true
+          },
+          "image_url": {
+            "type": "VARCHAR(500)"
+          },
+          "rating": {
+            "type": "DECIMAL(3,2)",
+            "default": 5
+          },
+          "display_order": {
+            "type": "INTEGER",
+            "default": 0
+          },
+          "published": {
+            "type": "BOOLEAN",
+            "default": true
+          },
+          "created_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        },
+        "indexes": [
+          "display_order",
+          "published"
+        ]
+      },
+      "faqs": {
+        "fields": {
+          "id": {
+            "type": "UUID",
+            "primaryKey": true,
+            "autoGenerate": true
+          },
+          "question": {
+            "type": "TEXT",
+            "required": true
+          },
+          "answer": {
+            "type": "TEXT",
+            "required": true
+          },
+          "display_order": {
+            "type": "INTEGER",
+            "default": 0
+          },
+          "published": {
+            "type": "BOOLEAN",
+            "default": true
+          },
+          "created_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        },
+        "indexes": [
+          "display_order",
+          "published"
+        ]
+      },
+      "customers": {
+        "fields": {
+          "id": {
+            "type": "UUID",
+            "primaryKey": true,
+            "autoGenerate": true
+          },
+          "name": {
+            "type": "VARCHAR(255)",
+            "required": true
+          },
+          "email": {
+            "type": "VARCHAR(255)",
+            "unique": true,
+            "required": true
+          },
+          "phone": {
+            "type": "VARCHAR(20)",
+            "required": true
+          },
+          "company_name": {
+            "type": "VARCHAR(255)"
+          },
+          "gst_number": {
+            "type": "VARCHAR(50)"
+          },
+          "address": {
+            "type": "JSONB"
+          },
+          "created_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          },
+          "updated_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        },
+        "indexes": [
+          "email"
+        ]
+      },
+      "orders": {
+        "fields": {
+          "id": {
+            "type": "UUID",
+            "primaryKey": true,
+            "autoGenerate": true
+          },
+          "order_number": {
+            "type": "VARCHAR(50)",
+            "unique": true,
+            "required": true
+          },
+          "customer_id": {
+            "type": "UUID",
+            "foreignKey": "customers.id",
+            "required": false
+          },
+          "customer_name": {
+            "type": "VARCHAR(255)",
+            "required": true
+          },
+          "customer_email": {
+            "type": "VARCHAR(255)",
+            "required": true
+          },
+          "customer_phone": {
+            "type": "VARCHAR(20)",
+            "required": true
+          },
+          "shipping_address": {
+            "type": "JSONB",
+            "required": true
+          },
+          "items": {
+            "type": "JSONB",
+            "required": true
+          },
+          "subtotal": {
+            "type": "DECIMAL(10,2)",
+            "required": true
+          },
+          "shipping_charge": {
+            "type": "DECIMAL(10,2)",
+            "default": 0
+          },
+          "tax_amount": {
+            "type": "DECIMAL(10,2)",
+            "default": 0
+          },
+          "total_amount": {
+            "type": "DECIMAL(10,2)",
+            "required": true
+          },
+          "status": {
+            "type": "VARCHAR(50)",
+            "default": "pending"
+          },
+          "payment_status": {
+            "type": "VARCHAR(50)",
+            "default": "pending"
+          },
+          "notes": {
+            "type": "TEXT"
+          },
+          "created_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          },
+          "updated_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        },
+        "indexes": [
+          "customer_id",
+          "order_number",
+          "status",
+          "created_at"
+        ]
+      },
+      "settings": {
+        "fields": {
+          "id": {
+            "type": "UUID",
+            "primaryKey": true,
+            "autoGenerate": true
+          },
+          "site_name": {
+            "type": "VARCHAR(255)",
+            "required": true
+          },
+          "site_logo": {
+            "type": "TEXT"
+          },
+          "contact_phone": {
+            "type": "VARCHAR(20)"
+          },
+          "contact_email": {
+            "type": "VARCHAR(255)"
+          },
+          "address": {
+            "type": "TEXT"
+          },
+          "social_facebook": {
+            "type": "TEXT"
+          },
+          "social_x": {
+            "type": "TEXT"
+          },
+          "social_instagram": {
+            "type": "TEXT"
+          },
+          "social_linkedin": {
+            "type": "TEXT"
+          },
+          "social_youtube": {
+            "type": "TEXT"
+          },
+          "shipping_charge": {
+            "type": "DECIMAL(10,2)",
+            "default": 0
+          },
+          "tax_rate": {
+            "type": "DECIMAL(5,2)",
+            "default": 18
+          },
+          "tax_name": {
+            "type": "VARCHAR(50)",
+            "default": "GST"
+          },
+          "free_shipping_threshold": {
+            "type": "DECIMAL(10,2)",
+            "default": 10000
+          },
+          "updated_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        },
+        "indexes": []
+      },
+      "payment_settings": {
+        "fields": {
+          "id": {
+            "type": "UUID",
+            "primaryKey": true,
+            "autoGenerate": true
+          },
+          "upi_qr_code_url": {
+            "type": "TEXT"
+          },
+          "upi_number": {
+            "type": "VARCHAR(100)"
+          },
+          "instructions": {
+            "type": "TEXT"
+          },
+          "is_active": {
+            "type": "BOOLEAN",
+            "default": false
+          },
+          "updated_at": {
+            "type": "TIMESTAMP",
+            "default": "CURRENT_TIMESTAMP"
+          }
+        },
+        "indexes": []
+      }
+    },
+    "apiResources": [
+      "categories",
+      "products",
+      "hero_sections",
+      "features",
+      "testimonials",
+      "faqs",
+      "customers",
+      "orders",
+      "settings",
+      "payment_settings"
+    ]
+  },
+  "projectId": "4c2e795f-5b91-4125-9e2e-8336707f272d",
+  "savedAt": "2026-03-24T15:39:13.934Z"
+}
