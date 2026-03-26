@@ -4,7 +4,7 @@ import { Target, Eye, Leaf, Award } from 'lucide-react';
 export default function AboutPage() {
   return (
     <div>
-      <section className="relative h-[400px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "linear-gradient(rgba(37,99,235,0.8), rgba(37,99,235,0.8)), url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=1200&q=80')" }}>
+      <section className="relative h-[400px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "linear-gradient(rgba(136, 70, 19, 0.8), rgba(74, 78, 86, 0.8)), url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=1200&q=80')" }}>
         <div className="container mx-auto px-4 text-center text-white">
           <h1 className="text-5xl font-bold mb-4">About BoxTech Enterprises</h1>
           <p className="text-xl">Decades of Excellence in Corrugated Packaging Solutions</p>
@@ -15,7 +15,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-4 text-gray-900">Our Mission</h2>
+              <h2 className="text-3xl font-bold mb-4 text-espresso">Our Mission</h2>
               <div className="flex items-start space-x-4 mb-6">
                 <Target className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
                 <div>
@@ -40,7 +40,7 @@ export default function AboutPage() {
 
       <section className="py-16 bg-lightGray">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Our Expertise</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-espresso">Our Expertise</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-md">
               <Award className="w-12 h-12 text-accent mb-4" />
@@ -58,7 +58,7 @@ export default function AboutPage() {
 
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">Commitment to Sustainability</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-espresso">Commitment to Sustainability</h2>
           <div className="max-w-4xl mx-auto">
             <div className="bg-secondary/10 border-l-4 border-secondary p-6 rounded-lg mb-6">
               <h3 className="text-xl font-semibold mb-3 text-gray-900">100% Recyclable Materials</h3>

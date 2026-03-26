@@ -48,7 +48,7 @@ export default function HomePage() {
             <p className="text-xl md:text-2xl mb-6 text-gray-200">{hero.subtitle}</p>
             <p className="text-lg mb-8 max-w-3xl mx-auto text-gray-300">{hero.description}</p>
             {hero.cta_text && hero.cta_link && (
-              <Link to={hero.cta_link} className="inline-flex items-center space-x-2 px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primaryDark transition-colors shadow-lg text-lg">
+              <Link to={hero.cta_link} className="inline-flex items-center space-x-2 px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primaryLight transition-colors shadow-lg text-lg">
                 <span>{hero.cta_text}</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
@@ -59,7 +59,7 @@ export default function HomePage() {
 
       <section className="py-16 bg-lightGray">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Why Choose BoxTech?</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-espresso">Why Choose BoxTech?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {features.slice(0, 6).map((feature) => {
               const IconComponent = iconMap[feature.icon] || CheckCircle;
@@ -67,7 +67,7 @@ export default function HomePage() {
                 <div key={feature.id} className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
                   <IconComponent className="w-12 h-12 text-primary mb-4" />
                   <h3 className="text-xl font-semibold mb-2 text-gray-900">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-secondary">{feature.description}</p>
                 </div>
               );
             })}
@@ -78,7 +78,7 @@ export default function HomePage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-4xl font-bold text-gray-900">Featured Products</h2>
+            <h2 className="text-4xl font-bold text-espresso">Featured Products</h2>
             <Link to="/products" className="text-primary font-semibold hover:underline flex items-center space-x-1">
               <span>View All</span>
               <ArrowRight className="w-4 h-4" />
@@ -110,7 +110,7 @@ export default function HomePage() {
       {testimonials.length > 0 && (
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">What Our Clients Say</h2>
+            <h2 className="text-4xl font-bold text-center mb-12 text-espresso">What Our Clients Say</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {testimonials.slice(0, 3).map((testimonial) => (
                 <div key={testimonial.id} className="bg-white p-6 rounded-xl shadow-md">

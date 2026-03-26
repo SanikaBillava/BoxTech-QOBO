@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QoboBanner } from '@qobo/banner';
 import { AdminProtectedRoute, initializeAdminAuthFromUrl } from '@qobo/admin-auth';
 import { SettingsProvider } from './contexts/SettingsContext';
-import { CartProvider } from './contexts/CartContext';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -11,9 +10,6 @@ import AboutPage from './pages/AboutPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import ServicesPage from './pages/ServicesPage';
-import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
-import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import AdminLayout from './components/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ProductsList from './pages/admin/ProductsList';
@@ -38,8 +34,7 @@ export default function App() {
 
   return (
     <SettingsProvider>
-      <CartProvider>
-        <Router>
+      <Router>
           <QoboBanner apiKey={import.meta.env.VITE_API_KEY} apiBaseUrl={import.meta.env.VITE_API_BASE_URL} />
           <div className="flex flex-col min-h-screen">
             <Routes>
@@ -53,9 +48,6 @@ export default function App() {
                       <Route path="/products" element={<ProductsPage />} />
                       <Route path="/products/:slug" element={<ProductDetailPage />} />
                       <Route path="/services" element={<ServicesPage />} />
-                      <Route path="/cart" element={<CartPage />} />
-                      <Route path="/checkout" element={<CheckoutPage />} />
-                      <Route path="/order-confirmation/:orderId" element={<OrderConfirmationPage />} />
                     </Routes>
                   </main>
                   <Footer />
@@ -82,7 +74,6 @@ export default function App() {
             </Routes>
           </div>
         </Router>
-      </CartProvider>
     </SettingsProvider>
   );
 }

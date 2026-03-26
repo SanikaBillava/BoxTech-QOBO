@@ -8,7 +8,7 @@ export default function Footer() {
   const { settings } = useSettings();
 
   return (
-    <footer className="bg-industrialGray text-white mt-auto">
+    <footer className="bg-espresso text-white mt-auto">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
@@ -44,12 +44,10 @@ export default function Footer() {
                   <span>{settings.contact_email}</span>
                 </li>
               )}
-              {settings?.address && (
-                <li className="flex items-start space-x-2">
-                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span>{settings.address}</span>
-                </li>
-              )}
+              <li className="flex items-start space-x-2">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span>Row house No- A-12, sector-4, Airoli Navi Mumbai 400708</span>
+              </li>
             </ul>
           </div>
 

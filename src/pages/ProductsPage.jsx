@@ -41,7 +41,7 @@ export default function ProductsPage() {
   return (
     <div className="py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-8 text-gray-900">Our Products</h1>
+        <h1 className="text-4xl font-bold mb-8 text-espresso">Our Products</h1>
 
         <div className="mb-8 space-y-4">
           <div className="relative">
