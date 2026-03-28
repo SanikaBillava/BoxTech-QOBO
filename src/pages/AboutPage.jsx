@@ -15,19 +15,42 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-4 text-espresso">Our Mission</h2>
-              <div className="flex items-start space-x-4 mb-6">
-                <Target className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Operational Excellence</h3>
-                  <p className="text-gray-700">We strive to deliver precision-engineered corrugated solutions that exceed industry standards. Our commitment to quality and innovation drives every aspect of our manufacturing process.</p>
+              <h2 className="text-3xl font-bold mb-4 text-espresso">Why Choose Us?</h2><hr/>
+              <div className="space-y-5">
+                <div className="flex items-start space-x-4">
+                  <Target className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Customization</h3>
+                    <p className="text-gray-700">We offer a wide variety of sizes, styles, and custom printing options to create packaging that best suits your product and branding needs.</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Eye className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Global Industry Leadership</h3>
-                  <p className="text-gray-700">Our vision is to become the preferred packaging partner for businesses worldwide, recognized for sustainability, reliability, and technological advancement.</p>
+                <div className="flex items-start space-x-4">
+                  <Leaf className="w-8 h-8 text-secondary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Sustainability</h3>
+                    <p className="text-gray-700">We use recycled materials and implement eco-friendly processes to minimize environmental impact. Our products are 100% recyclable and biodegradable.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <Award className="w-8 h-8 text-accent flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Durability</h3>
+                    <p className="text-gray-700">Our corrugated boxes are designed to provide strength and protection, ensuring your products arrive safely at their destination.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <Eye className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Innovation</h3>
+                    <p className="text-gray-700">We stay ahead of packaging trends, offering modern, innovative packaging designs that meet both functional and aesthetic needs.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <Target className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Quality Control</h3>
+                    <p className="text-gray-700">We have stringent quality control measures to ensure every box meets the highest standards of performance and consistency.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -36,53 +59,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section className="py-16 bg-lightGray">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-espresso">Our Expertise</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <Award className="w-12 h-12 text-accent mb-4" />
-              <h3 className="text-2xl font-semibold mb-3">Decades of Experience</h3>
-              <p className="text-gray-700">With over 30 years in the corrugated packaging industry, we have refined our manufacturing processes to deliver exceptional quality and reliability. Our team of experts brings deep industry knowledge and technical expertise to every project.</p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <Leaf className="w-12 h-12 text-secondary mb-4" />
-              <h3 className="text-2xl font-semibold mb-3">Advanced Manufacturing Facility</h3>
-              <p className="text-gray-700">Our state-of-the-art production facility is equipped with cutting-edge technology for precision cutting, printing, and assembly. We maintain strict quality control measures and conduct rigorous testing on every product.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-espresso">Commitment to Sustainability</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-secondary/10 border-l-4 border-secondary p-6 rounded-lg mb-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">100% Recyclable Materials</h3>
-              <p className="text-gray-700">All our corrugated products are manufactured using 100% recyclable kraft paper. We prioritize the use of recycled materials in our production process, reducing the environmental impact while maintaining superior product quality.</p>
-            </div>
-            <div className="bg-secondary/10 border-l-4 border-secondary p-6 rounded-lg mb-6">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Energy Efficiency</h3>
-              <p className="text-gray-700">Our manufacturing facility implements energy-efficient technologies and processes. We have reduced our energy consumption by 35% over the past five years through equipment upgrades and process optimization.</p>
-            </div>
-            <div className="bg-secondary/10 border-l-4 border-secondary p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Circular Economy Principles</h3>
-              <p className="text-gray-700">We support a circular economy by designing products that can be easily recycled and reused. Our packaging solutions are biodegradable and contribute to waste reduction across the supply chain.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-primary text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Ready to Partner with Us?</h2>
-          <p className="text-xl mb-8">Contact our team to discuss your packaging requirements and discover how we can help your business grow.</p>
-          <a href="mailto:info@boxtechenterprises.com" className="inline-block px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition-colors">Get in Touch</a>
-        </div>
-      </section>
+      </section>  
     </div>
   );
 }

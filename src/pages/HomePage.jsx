@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Leaf, Shield, Factory, TrendingDown, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle, Leaf, Shield, Factory, TrendingDown, Zap, Target, Eye } from 'lucide-react';
 import { api } from '../lib/api';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ProductCard from '../components/ProductCard';
@@ -41,40 +41,96 @@ export default function HomePage() {
 
   return (
     <div>
-      {hero && (
-        <section className="relative h-[600px] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${hero.background_image_url})` }}>
-          <div className="container mx-auto px-4 text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">{hero.title}</h1>
-            <p className="text-xl md:text-2xl mb-6 text-gray-200">{hero.subtitle}</p>
-            <p className="text-lg mb-8 max-w-3xl mx-auto text-gray-300">{hero.description}</p>
-            {hero.cta_text && hero.cta_link && (
-              <Link to={hero.cta_link} className="inline-flex items-center space-x-2 px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primaryLight transition-colors shadow-lg text-lg">
-                <span>{hero.cta_text}</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            )}
-          </div>
-        </section>
-      )}
-
-      <section className="py-16 bg-lightGray">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-espresso">Why Choose BoxTech?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.slice(0, 6).map((feature) => {
-              const IconComponent = iconMap[feature.icon] || CheckCircle;
-              return (
-                <div key={feature.id} className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                  <IconComponent className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">{feature.title}</h3>
-                  <p className="text-secondary">{feature.description}</p>
-                </div>
-              );
-            })}
+      {/* Updated Hero Section with boxtech.docx content */}
+      <section className="relative h-[650px] flex items-center justify-center bg-cover bg-center" 
+        style={{ backgroundImage: `linear-gradient(rgba(61, 38, 22, 0.7), rgba(61, 38, 22, 0.7)), url(${hero?.background_image_url || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2000&q=80'})` }}>
+        <div className="container mx-auto px-4 text-center text-white">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+            Leading Manufacturer of High-Quality Corrugated Boxes
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-200 leading-relaxed">
+            BoxTech Enterprises provides custom-made packaging tailored to your needs. From standard shipping boxes to branded packaging, we protect your products and promote your identity. 
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/products" className="inline-flex items-center space-x-2 px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-all shadow-lg text-lg">
+              <span>Explore Products</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
 
+      {/* New Mission & Vision Section (Clean & Minimalist) */}
+      <section className="py-24 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-2 gap-10">
+      
+      {/* Mission Card */}
+      <div className="group relative p-1 bg-white rounded-3xl transition-all duration-500 hover:shadow-[0_20px_50px_rgba(179,142,63,0.15)]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#B38E3F] to-[#3D2616] opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-500"></div>
+        <div className="relative p-10 bg-[#F9F9F9] rounded-[22px] border border-gray-100 h-full">
+          
+          {/* Header Container: Icon and Title side-by-side */}
+          <div className="flex items-center mb-6">
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white shadow-sm border border-gray-50 text-[#B38E3F] mr-4 flex-shrink-0">
+              <Target className="w-6 h-6" />
+            </div>
+            <h3 className="text-2xl font-bold text-[#3D2616] tracking-tight">Our Mission</h3>
+          </div>
+
+          <p className="text-gray-600 leading-relaxed text-lg font-light">
+            To provide top-quality, sustainable, and cost-effective corrugated packaging solutions that meet unique customer needs while supporting environmental excellence.
+          </p>
+        </div>
+      </div>
+
+      {/* Vision Card */}
+      <div className="group relative p-1 bg-white rounded-3xl transition-all duration-500 hover:shadow-[0_20px_50px_rgba(179,142,63,0.15)]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#B38E3F] to-[#3D2616] opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-500"></div>
+        <div className="relative p-10 bg-[#F9F9F9] rounded-[22px] border border-gray-100 h-full">
+          
+          {/* Header Container: Icon and Title side-by-side */}
+          <div className="flex items-center mb-6">
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white shadow-sm border border-gray-50 text-[#B38E3F] mr-4 flex-shrink-0">
+              <Eye className="w-6 h-6" />
+            </div>
+            <h3 className="text-2xl font-bold text-[#3D2616] tracking-tight">Our Vision</h3>
+          </div>
+
+          <p className="text-gray-600 leading-relaxed text-lg font-light">
+            To be the industry leader known for innovation and sustainability, delivering efficient, environmentally-friendly solutions for packaging needs worldwide.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+      {/* Features Section */}
+      <section className="py-16 bg-lightGray">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-espresso">Why Choose BoxTech?</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-md">
+               <Shield className="w-12 h-12 text-primary mb-4" />
+               <h3 className="text-xl font-semibold mb-2">Durability</h3>
+               <p className="text-secondary">Designed to provide strength and protection, ensuring your products arrive safely at their destination.</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-md">
+               <Leaf className="w-12 h-12 text-primary mb-4" />
+               <h3 className="text-xl font-semibold mb-2">Sustainability</h3>
+               <p className="text-secondary">100% recyclable and biodegradable products made from recycled materials to minimize environmental impact.</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-md">
+               <Zap className="w-12 h-12 text-primary mb-4" />
+               <h3 className="text-xl font-semibold mb-2">Customization</h3>
+               <p className="text-secondary">A wide variety of sizes, styles, and custom printing options to suit your product and branding needs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
@@ -96,38 +152,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 bg-primary text-white">
+      {/* Stats Banner */}
+      <section className="py-16 bg-espresso text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Manufactured Over 50 Million Units Annually</h2>
-          <p className="text-xl mb-6">Trusted by leading businesses across retail, food, electronics, and logistics industries</p>
-          <Link to="/about" className="inline-flex items-center space-x-2 px-6 py-3 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition-colors">
+          <h2 className="text-4xl font-bold mb-4">Over [X] Million Units Delivered Annually</h2>
+          <p className="text-xl mb-8 opacity-90">Partnered with leading brands to optimize supply chain efficiency and reduce costs.</p>
+          <Link to="/about" className="inline-flex items-center space-x-2 px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors">
             <span>Learn More About Us</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </section>
-
-      {testimonials.length > 0 && (
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-12 text-espresso">What Our Clients Say</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.slice(0, 3).map((testimonial) => (
-                <div key={testimonial.id} className="bg-white p-6 rounded-xl shadow-md">
-                  <div className="flex items-center mb-4">
-                    <img src={testimonial.image_url} alt={testimonial.name} className="w-12 h-12 rounded-full mr-4" onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'; }} />
-                    <div>
-                      <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-600">{testimonial.role}, {testimonial.company}</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 italic">"{testimonial.text}"</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
     </div>
   );
 }
