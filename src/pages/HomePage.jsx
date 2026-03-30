@@ -106,27 +106,15 @@ export default function HomePage() {
     </div>
   </div>
 </section>
-      {/* Features Section */}
-      <section className="py-16 bg-lightGray">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-espresso">Why Choose BoxTech?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-md">
-               <Shield className="w-12 h-12 text-primary mb-4" />
-               <h3 className="text-xl font-semibold mb-2">Durability</h3>
-               <p className="text-secondary">Designed to provide strength and protection, ensuring your products arrive safely at their destination.</p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-md">
-               <Leaf className="w-12 h-12 text-primary mb-4" />
-               <h3 className="text-xl font-semibold mb-2">Sustainability</h3>
-               <p className="text-secondary">100% recyclable and biodegradable products made from recycled materials to minimize environmental impact.</p>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-md">
-               <Zap className="w-12 h-12 text-primary mb-4" />
-               <h3 className="text-xl font-semibold mb-2">Customization</h3>
-               <p className="text-secondary">A wide variety of sizes, styles, and custom printing options to suit your product and branding needs.</p>
-            </div>
-          </div>
+     {/* Stats Banner */}
+      <section className="py-16 bg-espresso text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-4">Over [X] Million Units Delivered Annually</h2>
+          <p className="text-xl mb-8 opacity-90">Partnered with leading brands to optimize supply chain efficiency and reduce costs.</p>
+          <Link to="/about" className="inline-flex items-center space-x-2 px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors">
+            <span>Learn More About Us</span>
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
 
@@ -152,17 +140,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Banner */}
-      <section className="py-16 bg-espresso text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Over [X] Million Units Delivered Annually</h2>
-          <p className="text-xl mb-8 opacity-90">Partnered with leading brands to optimize supply chain efficiency and reduce costs.</p>
-          <Link to="/about" className="inline-flex items-center space-x-2 px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors">
-            <span>Learn More About Us</span>
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
-      </section>
+      
     </div>
   );
 }

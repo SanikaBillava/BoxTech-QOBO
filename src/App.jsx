@@ -9,6 +9,14 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import ThreePlyInfoPage from './pages/ThreePlyInfoPage';
+import FivePlyInfoPage from './pages/FivePlyInfoPage';
+import SevenPlyInfoPage from './pages/SevenPlyInfoPage';
+import PrintedBoxesInfoPage from './pages/PrintedBoxesInfoPage';
+import ECommerceMailersInfoPage from './pages/ECommerceMailersInfoPage';
+import MonoCartonsInfoPage from './pages/MonoCartonsInfoPage';
+import CorreugatedRollsInfoPage from './pages/CorreugatedRollsInfoPage';
+import CorreugatedPadsSheetsInfoPage from './pages/CorreugatedPadsSheetsInfoPage';
 import ServicesPage from './pages/ServicesPage';
 import AdminLayout from './components/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -46,6 +54,14 @@ export default function App() {
                       <Route path="/" element={<HomePage />} />
                       <Route path="/about" element={<AboutPage />} />
                       <Route path="/products" element={<ProductsPage />} />
+                      <Route path="/products/3-ply-info" element={<ThreePlyInfoPage />} />
+                      <Route path="/products/5-ply-info" element={<FivePlyInfoPage />} />
+                      <Route path="/products/7-ply-info" element={<SevenPlyInfoPage />} />
+                      <Route path="/products/printed-boxes-info" element={<PrintedBoxesInfoPage />} />
+                      <Route path="/products/ecommerce-mailers-info" element={<ECommerceMailersInfoPage />} />
+                      <Route path="/products/mono-cartons-info" element={<MonoCartonsInfoPage />} />
+                      <Route path="/products/corrugated-rolls-info" element={<CorreugatedRollsInfoPage />} />
+                      <Route path="/products/corrugated-pads-sheets-info" element={<CorreugatedPadsSheetsInfoPage />} />
                       <Route path="/products/:slug" element={<ProductDetailPage />} />
                       <Route path="/services" element={<ServicesPage />} />
                     </Routes>
