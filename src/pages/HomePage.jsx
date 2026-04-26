@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Leaf, Shield, Factory, TrendingDown, Zap, Target, Eye } from 'lucide-react';
+import { ArrowRight, CheckCircle, Leaf, Shield, Factory, TrendingDown, Zap, Target, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import { api } from '../lib/api';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ProductCard from '../components/ProductCard';
+
+import sliderImg1 from '../../slider-images/box3.jpg (1).jpeg';
+import sliderImg2 from '../../slider-images/boxtech.jpg (1).jpeg';
+import sliderImg3 from '../../slider-images/boxtech1.jpg (1).jpeg';
+import sliderImg4 from '../../slider-images/boxtech2.jpg (1).jpeg';
+
+const sliderImages = [sliderImg1, sliderImg2, sliderImg3, sliderImg4];
 
 export default function HomePage() {
   const [hero, setHero] = useState(null);
@@ -11,6 +18,7 @@ export default function HomePage() {
   const [products, setProducts] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     loadData();
@@ -35,20 +43,40 @@ export default function HomePage() {
     }
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   const iconMap = { CheckCircle, Leaf, Shield, Factory, TrendingDown, Zap };
 
   if (loading) return <LoadingSpinner />;
 
   return (
     <div>
-      {/* Updated Hero Section with boxtech.docx content */}
-      <section className="relative h-[650px] flex items-center justify-center bg-cover bg-center" 
-        style={{ backgroundImage: `linear-gradient(rgba(61, 38, 22, 0.7), rgba(61, 38, 22, 0.7)), url(${hero?.background_image_url || 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2000&q=80'})` }}>
-        <div className="container mx-auto px-4 text-center text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+      {/* Hero Slider Section */}
+      <section className="relative h-[650px] flex items-center justify-center overflow-hidden">
+        {/* Slider Backgrounds */}
+        {sliderImages.map((img, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("${img}")`
+            }}
+          />
+        ))}
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 text-center text-white">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in drop-shadow-md">
             Leading Manufacturer of High-Quality Corrugated Boxes
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-200 leading-relaxed">
+          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-200 leading-relaxed drop-shadow">
             BoxTech Enterprises provides custom-made packaging tailored to your needs. From standard shipping boxes to branded packaging, we protect your products and promote your identity. 
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -57,6 +85,33 @@ export default function HomePage() {
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
+        </div>
+
+        {/* Navigation Arrows */}
+        <button 
+          onClick={() => setCurrentSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length)}
+          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors z-20"
+        >
+          <ChevronLeft className="w-8 h-8" />
+        </button>
+        <button 
+          onClick={() => setCurrentSlide((prev) => (prev + 1) % sliderImages.length)}
+          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors z-20"
+        >
+          <ChevronRight className="w-8 h-8" />
+        </button>
+
+        {/* Pagination Dots */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
+          {sliderImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                index === currentSlide ? 'bg-primary scale-125' : 'bg-white/50 hover:bg-white/80'
+              }`}
+            />
+          ))}
         </div>
       </section>
 

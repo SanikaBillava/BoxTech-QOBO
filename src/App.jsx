@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { QoboBanner } from '@qobo/banner';
 import { AdminProtectedRoute, initializeAdminAuthFromUrl } from '@qobo/admin-auth';
 import { SettingsProvider } from './contexts/SettingsContext';
 import Navigation from './components/Navigation';
@@ -43,7 +42,6 @@ export default function App() {
   return (
     <SettingsProvider>
       <Router>
-          <QoboBanner apiKey={import.meta.env.VITE_API_KEY} apiBaseUrl={import.meta.env.VITE_API_BASE_URL} />
           <div className="flex flex-col min-h-screen">
             <Routes>
               <Route path="/*" element={
